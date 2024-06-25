@@ -1,3 +1,6 @@
+import pytest
+
+
 def pytest_configure():
     """
     Set up pytest global variables.

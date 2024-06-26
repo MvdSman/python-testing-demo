@@ -5,7 +5,7 @@
 <meta content="chrome=1" http-equiv="X-UA-Compatible"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<title>demo copy slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
+<title>demo slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
   import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
@@ -7440,7 +7440,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Python-Testing-Demo">Python Testing Demo<a class="anchor-link" href="#Python-Testing-Demo">¶</a></h1><h2 id="Why-testing-is-valuable-in-Python">Why testing is valuable in Python<a class="anchor-link" href="#Why-testing-is-valuable-in-Python">¶</a></h2><h2 id="Different-methods-and-packages-for-testing-in-Python">Different methods and packages for testing in Python<a class="anchor-link" href="#Different-methods-and-packages-for-testing-in-Python">¶</a></h2><h2 id="Some-tips-&amp;-tricks">Some tips &amp; tricks<a class="anchor-link" href="#Some-tips-&amp;-tricks">¶</a></h2><h2 id="Some-gotchas">Some gotchas<a class="anchor-link" href="#Some-gotchas">¶</a></h2>
+<h1 id="Python-Testing-Demo">Python Testing Demo<a class="anchor-link" href="#Python-Testing-Demo">¶</a></h1><h2 id="Why-testing-is-valuable-in-Python">Why testing is valuable in Python<a class="anchor-link" href="#Why-testing-is-valuable-in-Python">¶</a></h2><h2 id="Basic-function-testing">Basic function testing<a class="anchor-link" href="#Basic-function-testing">¶</a></h2><h2 id="Code-Coverage">Code Coverage<a class="anchor-link" href="#Code-Coverage">¶</a></h2><h2 id="Using-fixtures">Using fixtures<a class="anchor-link" href="#Using-fixtures">¶</a></h2><h2 id="HTTP-Responses">HTTP Responses<a class="anchor-link" href="#HTTP-Responses">¶</a></h2><p><a href="https://github.com/MvdSman/python-testing-demo">https://github.com/MvdSman/python-testing-demo</a></p>
 </div>
 </div>
 </div>
@@ -7460,199 +7460,30 @@ main {
 </div>
 </div>
 </div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># /python_testing_demo/some_module_file.py</span>
-
-<span class="k">def</span> <span class="nf">function_that_returns_text</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">text</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Input did not have a '</span><span class="si">{</span><span class="nb">str</span><span class="si">}</span><span class="s2">' type, but '</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="si">}</span><span class="s2">'!"</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">function_that_returns_text</span><span class="p">(</span><span class="s2">"You should get this text back!"</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></div><div class="fragment">
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>This code does exactly what it says it does, but you <em>proof</em> that it will by using tests to describe its behavior.</p>
+<h2 id="Basic-function-testing">Basic function testing<a class="anchor-link" href="#Basic-function-testing">¶</a></h2><p>Most often, the tests will validate small and isolated functionality.</p>
+<p>If you want to test whether some warning or error is being raised, you will need to check for that raise instead of a value, i.e. with <code>pytest.raises(...)</code>.</p>
+<p>Ref: <a href="https://docs.pytest.org/en/7.1.x/how-to/capture-warnings.html">https://docs.pytest.org/en/7.1.x/how-to/capture-warnings.html</a></p>
 </div>
 </div>
 </div>
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Set up PyTest</span>
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>ipytest
-<span class="kn">import</span> <span class="nn">ipytest</span>
-<span class="n">ipytest</span><span class="o">.</span><span class="n">autoconfig</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># /tests/some_tests_file.py</span>
-<span class="k">def</span> <span class="nf">test_str</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">function_that_returns_text</span><span class="p">(</span><span class="s2">"You should see this text!"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"You should see this text!"</span>
-
-<span class="k">def</span> <span class="nf">test_int_as_str</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">function_that_returns_text</span><span class="p">(</span><span class="s2">"15"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"15"</span>
-
-<span class="k">def</span> <span class="nf">test_int</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">function_that_returns_text</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"15"</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">ipytest</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">'-vv'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="HTTP-Responses">HTTP Responses<a class="anchor-link" href="#HTTP-Responses">¶</a></h3><p>Sometimes you'll need to verify that certain HTTP requests contain specific data, i.e. to verify certain third-party behavior. You can catch and expose HTTP request data with the following code.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># /tests/conftest.py</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">pytest</span>
-
-<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<span class="k">def</span> <span class="nf">debug_http</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">"module"</span><span class="p">,</span> <span class="n">autouse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Catches all out-going HTTP calls and prints them in the console.</span>
-<span class="sd">    Use `autouse=True` to automatically use it in every test which imports this conftest.py file.</span>
-<span class="sd">    """</span>
-    <span class="kn">import</span> <span class="nn">http.client</span> <span class="k">as</span> <span class="nn">http_client</span>
-
-    <span class="n">http_client</span><span class="o">.</span><span class="n">HTTPConnection</span><span class="o">.</span><span class="n">debuglevel</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">()</span>
-    <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"debug_http"</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
-    <span class="n">requests_log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"requests.packages.urllib3"</span><span class="p">)</span>
-    <span class="n">requests_log</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
-    <span class="n">requests_log</span><span class="o">.</span><span class="n">propagate</span> <span class="o">=</span> <span class="kc">True</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># /tests/some_tests_file.py</span>
-<span class="o">%%</span><span class="k">ipytest</span> -s -vvv -k test_http_logs_are_not_catched
-import requests
-
-def test_http_logs_are_not_catched(
-    capsys,
-):
-    requests.get("https://www.google.com/")
-
-    out, err = capsys.readouterr()
-    print(out)
-    assert "reply: 'HTTP/1.1 200 OK\r\n'" not in out
-
-ipytest.run('-vv')
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># /tests/some_tests_file.py</span>
-<span class="o">%%</span><span class="k">ipytest</span> -s -vvv -k test_http_logs_are_catched
-
-def test_http_logs_are_catched(
-    debug_http,
-    capsys,
-):
-    requests.get("https://www.google.com/")
-
-    out, err = capsys.readouterr()
-    print(out)
-    assert "reply: 'HTTP/1.1 200 OK\r\n'" not in out
-
-ipytest.run('-vv')
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Code</span>
 
-<span class="n">Code</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">'tests/test_fixtures.py'</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">'python'</span><span class="p">)</span>
+<span class="n">Code</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">'python_testing_demo/basic_functions.py'</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">'python'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7663,7 +7494,850 @@ ipytest.run('-vv')
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[32]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.output_html .hll { background-color: #ffffcc }
+.output_html { background: #f8f8f8; }
+.output_html .c { color: #3D7B7B; font-style: italic } /* Comment */
+.output_html .err { border: 1px solid #FF0000 } /* Error */
+.output_html .k { color: #008000; font-weight: bold } /* Keyword */
+.output_html .o { color: #666666 } /* Operator */
+.output_html .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.output_html .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.output_html .cp { color: #9C6500 } /* Comment.Preproc */
+.output_html .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.output_html .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.output_html .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.output_html .gd { color: #A00000 } /* Generic.Deleted */
+.output_html .ge { font-style: italic } /* Generic.Emph */
+.output_html .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.output_html .gr { color: #E40000 } /* Generic.Error */
+.output_html .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.output_html .gi { color: #008400 } /* Generic.Inserted */
+.output_html .go { color: #717171 } /* Generic.Output */
+.output_html .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.output_html .gs { font-weight: bold } /* Generic.Strong */
+.output_html .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.output_html .gt { color: #0044DD } /* Generic.Traceback */
+.output_html .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.output_html .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.output_html .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.output_html .kp { color: #008000 } /* Keyword.Pseudo */
+.output_html .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.output_html .kt { color: #B00040 } /* Keyword.Type */
+.output_html .m { color: #666666 } /* Literal.Number */
+.output_html .s { color: #BA2121 } /* Literal.String */
+.output_html .na { color: #687822 } /* Name.Attribute */
+.output_html .nb { color: #008000 } /* Name.Builtin */
+.output_html .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.output_html .no { color: #880000 } /* Name.Constant */
+.output_html .nd { color: #AA22FF } /* Name.Decorator */
+.output_html .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.output_html .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.output_html .nf { color: #0000FF } /* Name.Function */
+.output_html .nl { color: #767600 } /* Name.Label */
+.output_html .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.output_html .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.output_html .nv { color: #19177C } /* Name.Variable */
+.output_html .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.output_html .w { color: #bbbbbb } /* Text.Whitespace */
+.output_html .mb { color: #666666 } /* Literal.Number.Bin */
+.output_html .mf { color: #666666 } /* Literal.Number.Float */
+.output_html .mh { color: #666666 } /* Literal.Number.Hex */
+.output_html .mi { color: #666666 } /* Literal.Number.Integer */
+.output_html .mo { color: #666666 } /* Literal.Number.Oct */
+.output_html .sa { color: #BA2121 } /* Literal.String.Affix */
+.output_html .sb { color: #BA2121 } /* Literal.String.Backtick */
+.output_html .sc { color: #BA2121 } /* Literal.String.Char */
+.output_html .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.output_html .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.output_html .s2 { color: #BA2121 } /* Literal.String.Double */
+.output_html .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.output_html .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.output_html .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.output_html .sx { color: #008000 } /* Literal.String.Other */
+.output_html .sr { color: #A45A77 } /* Literal.String.Regex */
+.output_html .s1 { color: #BA2121 } /* Literal.String.Single */
+.output_html .ss { color: #19177C } /* Literal.String.Symbol */
+.output_html .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.output_html .fm { color: #0000FF } /* Name.Function.Magic */
+.output_html .vc { color: #19177C } /* Name.Variable.Class */
+.output_html .vg { color: #19177C } /* Name.Variable.Global */
+.output_html .vi { color: #19177C } /* Name.Variable.Instance */
+.output_html .vm { color: #19177C } /* Name.Variable.Magic */
+.output_html .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_that_returns_text</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">text</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Input did not have a '</span><span class="si">{</span><span class="nb">str</span><span class="si">}</span><span class="s2">' type, but '</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="si">}</span><span class="s2">'!"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">python_testing_demo.basic_functions</span> <span class="kn">import</span> <span class="n">function_that_returns_text</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">function_that_returns_text</span><span class="p">(</span><span class="s2">"You should get this text back!"</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>You should get this text back!
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>This code does exactly what it says it does, but you <em>proof</em> that it will by using tests to describe its behavior.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Code</span>
+
+<span class="n">Code</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">'tests/basic_functions/test_basic_functions.py'</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">'python'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.output_html .hll { background-color: #ffffcc }
+.output_html { background: #f8f8f8; }
+.output_html .c { color: #3D7B7B; font-style: italic } /* Comment */
+.output_html .err { border: 1px solid #FF0000 } /* Error */
+.output_html .k { color: #008000; font-weight: bold } /* Keyword */
+.output_html .o { color: #666666 } /* Operator */
+.output_html .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.output_html .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.output_html .cp { color: #9C6500 } /* Comment.Preproc */
+.output_html .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.output_html .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.output_html .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.output_html .gd { color: #A00000 } /* Generic.Deleted */
+.output_html .ge { font-style: italic } /* Generic.Emph */
+.output_html .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.output_html .gr { color: #E40000 } /* Generic.Error */
+.output_html .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.output_html .gi { color: #008400 } /* Generic.Inserted */
+.output_html .go { color: #717171 } /* Generic.Output */
+.output_html .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.output_html .gs { font-weight: bold } /* Generic.Strong */
+.output_html .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.output_html .gt { color: #0044DD } /* Generic.Traceback */
+.output_html .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.output_html .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.output_html .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.output_html .kp { color: #008000 } /* Keyword.Pseudo */
+.output_html .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.output_html .kt { color: #B00040 } /* Keyword.Type */
+.output_html .m { color: #666666 } /* Literal.Number */
+.output_html .s { color: #BA2121 } /* Literal.String */
+.output_html .na { color: #687822 } /* Name.Attribute */
+.output_html .nb { color: #008000 } /* Name.Builtin */
+.output_html .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.output_html .no { color: #880000 } /* Name.Constant */
+.output_html .nd { color: #AA22FF } /* Name.Decorator */
+.output_html .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.output_html .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.output_html .nf { color: #0000FF } /* Name.Function */
+.output_html .nl { color: #767600 } /* Name.Label */
+.output_html .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.output_html .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.output_html .nv { color: #19177C } /* Name.Variable */
+.output_html .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.output_html .w { color: #bbbbbb } /* Text.Whitespace */
+.output_html .mb { color: #666666 } /* Literal.Number.Bin */
+.output_html .mf { color: #666666 } /* Literal.Number.Float */
+.output_html .mh { color: #666666 } /* Literal.Number.Hex */
+.output_html .mi { color: #666666 } /* Literal.Number.Integer */
+.output_html .mo { color: #666666 } /* Literal.Number.Oct */
+.output_html .sa { color: #BA2121 } /* Literal.String.Affix */
+.output_html .sb { color: #BA2121 } /* Literal.String.Backtick */
+.output_html .sc { color: #BA2121 } /* Literal.String.Char */
+.output_html .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.output_html .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.output_html .s2 { color: #BA2121 } /* Literal.String.Double */
+.output_html .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.output_html .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.output_html .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.output_html .sx { color: #008000 } /* Literal.String.Other */
+.output_html .sr { color: #A45A77 } /* Literal.String.Regex */
+.output_html .s1 { color: #BA2121 } /* Literal.String.Single */
+.output_html .ss { color: #19177C } /* Literal.String.Symbol */
+.output_html .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.output_html .fm { color: #0000FF } /* Name.Function.Magic */
+.output_html .vc { color: #19177C } /* Name.Variable.Class */
+.output_html .vg { color: #19177C } /* Name.Variable.Global */
+.output_html .vi { color: #19177C } /* Name.Variable.Instance */
+.output_html .vm { color: #19177C } /* Name.Variable.Magic */
+.output_html .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">from</span> <span class="nn">python_testing_demo.basic_functions</span> <span class="kn">import</span> <span class="n">function_that_returns_text</span>
+
+
+<span class="k">def</span> <span class="nf">test_str</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">function_that_returns_text</span><span class="p">(</span><span class="s2">"You should see this text!"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"You should see this text!"</span>
+
+
+<span class="k">def</span> <span class="nf">test_int_as_str</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">function_that_returns_text</span><span class="p">(</span><span class="s2">"15"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"15"</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">issue</span>
+<span class="k">def</span> <span class="nf">test_int</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">function_that_returns_text</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"15"</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">fix</span>
+<span class="k">def</span> <span class="nf">test_int_should_fail</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">match</span><span class="o">=</span><span class="s2">"Input did not have a"</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">function_that_returns_text</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"15"</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">fix</span>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
+    <span class="s2">"input, output, raises_error"</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="p">(</span>
+            <span class="s2">"some text"</span><span class="p">,</span>
+            <span class="s2">"some text"</span><span class="p">,</span>
+            <span class="kc">False</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="p">(</span>
+            <span class="mi">15</span><span class="p">,</span>
+            <span class="kc">None</span><span class="p">,</span>
+            <span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">],</span>
+    <span class="n">ids</span><span class="o">=</span><span class="p">[</span><span class="s2">"will_return_text"</span><span class="p">,</span><span class="s2">"will_fail_on_non-str_type"</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_function_that_returns_text</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">raises_error</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">raises_error</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">match</span><span class="o">=</span><span class="s2">"Input did not have a"</span><span class="p">):</span>
+            <span class="n">function_that_returns_text</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">function_that_returns_text</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span> <span class="o">==</span> <span class="n">output</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">!</span>pytest<span class="w"> </span>tests/basic_functions/test_basic_functions.py<span class="w"> </span>-m<span class="w"> </span><span class="s2">"not fix"</span><span class="w"> </span>-v
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre><span class="ansi-bold">============================= test session starts ==============================</span>
+platform linux -- Python 3.12.3, pytest-8.2.2, pluggy-1.5.0 -- /workspaces/python-testing-demo/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /workspaces/python-testing-demo
+configfile: pytest.ini
+plugins: anyio-4.4.0, cov-5.0.0
+collected 6 items / 3 deselected / 3 selected                                  
+
+tests/basic_functions/test_basic_functions.py::test_str <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">           [ 33%]</span>
+tests/basic_functions/test_basic_functions.py::test_int_as_str <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">    [ 66%]</span>
+tests/basic_functions/test_basic_functions.py::test_int <span class="ansi-red-fg">FAILED</span><span class="ansi-red-fg">           [100%]</span>
+
+=================================== FAILURES ===================================
+<span class="ansi-red-intense-fg ansi-bold">___________________________________ test_int ___________________________________</span>
+
+    <span class="ansi-white-fg">@pytest</span>.mark.issue
+    <span class="ansi-blue-intense-fg">def</span> <span class="ansi-green-intense-fg">test_int</span>():
+&gt;       <span class="ansi-blue-intense-fg">assert</span> function_that_returns_text(<span class="ansi-blue-intense-fg">15</span>) == <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">15</span><span class="ansi-yellow-fg">"</span>
+
+<span class="ansi-red-intense-fg ansi-bold">tests/basic_functions/test_basic_functions.py</span>:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+text = 15
+
+    <span class="ansi-blue-intense-fg">def</span> <span class="ansi-green-intense-fg">function_that_returns_text</span>(text: <span class="ansi-cyan-intense-fg">str</span>):
+        <span class="ansi-blue-intense-fg">if</span> <span class="ansi-cyan-intense-fg">isinstance</span>(text, <span class="ansi-cyan-intense-fg">str</span>):
+            <span class="ansi-blue-intense-fg">return</span> text
+        <span class="ansi-blue-intense-fg">else</span>:
+&gt;           <span class="ansi-blue-intense-fg">raise</span> <span class="ansi-cyan-intense-fg">ValueError</span>(<span class="ansi-yellow-fg">f</span><span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Input did not have a </span><span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg">{</span><span class="ansi-cyan-intense-fg">str</span><span class="ansi-yellow-fg">}</span><span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg"> type, but </span><span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg">{</span><span class="ansi-cyan-intense-fg">type</span>(text)<span class="ansi-yellow-fg">}</span><span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg">!</span><span class="ansi-yellow-fg">"</span>)
+<span class="ansi-red-intense-fg ansi-bold">E           ValueError: Input did not have a '&lt;class 'str'&gt;' type, but '&lt;class 'int'&gt;'!</span>
+
+<span class="ansi-red-intense-fg ansi-bold">python_testing_demo/basic_functions.py</span>:5: ValueError
+<span class="ansi-cyan-intense-fg ansi-bold">=========================== short test summary info ============================</span>
+<span class="ansi-red-fg">FAILED</span> tests/basic_functions/test_basic_functions.py::<span class="ansi-bold">test_int</span> - ValueError: Input did not have a '&lt;class 'str'&gt;' type, but '&lt;class 'int'&gt;'!
+<span class="ansi-red-fg">================== </span><span class="ansi-red-intense-fg ansi-bold">1 failed</span>, <span class="ansi-green-fg">2 passed</span>, <span class="ansi-yellow-fg">3 deselected</span><span class="ansi-red-fg"> in 0.09s</span><span class="ansi-red-fg"> ===================</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">!</span>pytest<span class="w"> </span>tests/basic_functions/test_basic_functions.py<span class="w"> </span>-m<span class="w"> </span><span class="s2">"fix"</span><span class="w"> </span>-v
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre><span class="ansi-bold">============================= test session starts ==============================</span>
+platform linux -- Python 3.12.3, pytest-8.2.2, pluggy-1.5.0 -- /workspaces/python-testing-demo/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /workspaces/python-testing-demo
+configfile: pytest.ini
+plugins: anyio-4.4.0, cov-5.0.0
+collected 6 items / 3 deselected / 3 selected                                  
+
+tests/basic_functions/test_basic_functions.py::test_int_should_fail <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [ 33%]</span>
+tests/basic_functions/test_basic_functions.py::test_function_that_returns_text[will_return_text] <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [ 66%]</span>
+tests/basic_functions/test_basic_functions.py::test_function_that_returns_text[will_fail_on_non-str_type] <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [100%]</span>
+
+<span class="ansi-green-fg">======================= </span><span class="ansi-green-intense-fg ansi-bold">3 passed</span>, <span class="ansi-yellow-fg">3 deselected</span><span class="ansi-green-fg"> in 0.02s</span><span class="ansi-green-fg"> ========================</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>You might have noticed the usage of <code>@pytest.mark.issue</code> and <code>@pytest.mark.fix</code> as well as the flags <code>-m "not fix"</code> and <code>-m "fix"</code>: markers allow for easy filtering of tests to run/skip.</p>
+<p>This is especially useful during various CI/CD stages, i.e.:</p>
+<ul>
+<li>Distinguish between slow and fast tests</li>
+<li>Select specific tests during different stages</li>
+<li>Filter tests that can only run in local/pipeline environments</li>
+</ul>
+<blockquote>
+<p>If you do not register custom markers in your <code>pytest.ini</code> file, you'll get a "unrecognized marker" warning.</p>
+</blockquote>
+<p>Ref: <a href="https://docs.pytest.org/en/7.1.x/example/markers.html">https://docs.pytest.org/en/7.1.x/example/markers.html</a></p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">!</span>pytest<span class="w"> </span>--markers
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre><span class="ansi-bold">@pytest.mark.issue:</span> mark test as incorrectly failing.
+
+<span class="ansi-bold">@pytest.mark.fix:</span> mark test as fixed test for issue.
+
+<span class="ansi-bold">@pytest.mark.no_cover:</span> disable coverage for this test.
+
+<span class="ansi-bold">@pytest.mark.anyio:</span> mark the (coroutine function) test to be run asynchronously via anyio.
+
+<span class="ansi-bold">@pytest.mark.filterwarnings(warning):</span> add a warning filter to the given test. see https://docs.pytest.org/en/stable/how-to/capture-warnings.html#pytest-mark-filterwarnings 
+
+<span class="ansi-bold">@pytest.mark.skip(reason=None):</span> skip the given test function with an optional reason. Example: skip(reason="no way of currently testing this") skips the test.
+
+<span class="ansi-bold">@pytest.mark.skipif(condition, ..., *, reason=...):</span> skip the given test function if any of the conditions evaluate to True. Example: skipif(sys.platform == 'win32') skips the test if we are on the win32 platform. See https://docs.pytest.org/en/stable/reference/reference.html#pytest-mark-skipif
+
+<span class="ansi-bold">@pytest.mark.xfail(condition, ..., *, reason=..., run=True, raises=None, strict=xfail_strict):</span> mark the test function as an expected failure if any of the conditions evaluate to True. Optionally specify a reason for better reporting and run=False if you don't even want to execute the test function. If only specific exception(s) are expected, you can list them in raises, and if the test fails in other ways, it will be reported as a true failure. See https://docs.pytest.org/en/stable/reference/reference.html#pytest-mark-xfail
+
+<span class="ansi-bold">@pytest.mark.parametrize(argnames, argvalues):</span> call a test function multiple times passing in different arguments in turn. argvalues generally needs to be a list of values if argnames specifies only one name or a list of tuples of values if argnames specifies multiple names. Example: @parametrize('arg1', [1,2]) would lead to two calls of the decorated test function, one with arg1=1 and another with arg1=2.see https://docs.pytest.org/en/stable/how-to/parametrize.html for more info and examples.
+
+<span class="ansi-bold">@pytest.mark.usefixtures(fixturename1, fixturename2, ...):</span> mark tests as needing all of the specified fixtures. see https://docs.pytest.org/en/stable/explanation/fixtures.html#usefixtures 
+
+<span class="ansi-bold">@pytest.mark.tryfirst:</span> mark a hook implementation function such that the plugin machinery will try to call it first/as early as possible. DEPRECATED, use @pytest.hookimpl(tryfirst=True) instead.
+
+<span class="ansi-bold">@pytest.mark.trylast:</span> mark a hook implementation function such that the plugin machinery will try to call it last/as late as possible. DEPRECATED, use @pytest.hookimpl(trylast=True) instead.
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Code-Coverage">Code Coverage<a class="anchor-link" href="#Code-Coverage">¶</a></h2><p>You can create a summary of your code coverage using the following commands. A variant on these can be used in your CI/CD pipeline to create rules on whether or not the repo is tested sufficiently and to create insights on what passes/fails.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create testing report and logs</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>junit2html
+<span class="o">!</span>pytest<span class="w"> </span>-v<span class="w"> </span>-s<span class="w"> </span>--junit-xml<span class="o">=</span>report.xml<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>log_for_testers.log
+<span class="o">!</span>python<span class="w"> </span>-m<span class="w"> </span>junit2htmlreport<span class="w"> </span>report.xml
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Requirement already satisfied: junit2html in ./.venv/lib/python3.12/site-packages (31.0.2)
+Requirement already satisfied: jinja2&gt;=3.0 in ./.venv/lib/python3.12/site-packages (from junit2html) (3.1.4)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in ./.venv/lib/python3.12/site-packages (from jinja2&gt;=3.0-&gt;junit2html) (2.1.5)
+<span class="ansi-bold">============================= test session starts ==============================</span>
+platform linux -- Python 3.12.3, pytest-8.2.2, pluggy-1.5.0 -- /workspaces/python-testing-demo/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /workspaces/python-testing-demo
+configfile: pytest.ini
+plugins: anyio-4.4.0, cov-5.0.0
+<span class="ansi-bold">collecting ... </span>collected 13 items
+
+tests/basic_functions/test_basic_functions.py::test_str <span class="ansi-green-fg">PASSED</span>
+tests/basic_functions/test_basic_functions.py::test_int_as_str <span class="ansi-green-fg">PASSED</span>
+tests/basic_functions/test_basic_functions.py::test_int <span class="ansi-red-fg">FAILED</span>
+tests/basic_functions/test_basic_functions.py::test_int_should_fail <span class="ansi-green-fg">PASSED</span>
+tests/basic_functions/test_basic_functions.py::test_function_that_returns_text[will_return_text] <span class="ansi-green-fg">PASSED</span>
+tests/basic_functions/test_basic_functions.py::test_function_that_returns_text[will_fail_on_non-str_type] <span class="ansi-green-fg">PASSED</span>
+tests/basic_functions/test_coverage.py::test_untested_function_true This line is tested!
+<span class="ansi-green-fg">PASSED</span>
+tests/fixtures/test_fixtures.py::test_should_have_access_to_global_variable <span class="ansi-green-fg">PASSED</span>
+tests/fixtures/test_fixtures.py::test_should_use_setup_and_teardown_and_overwrite_higher_level_var Setting up the test context...
+bar
+<span class="ansi-green-fg">PASSED</span>Tearing down the test context...
+foo
+
+tests/fixtures/test_fixtures.py::test_should_use_setup_and_teardown_and_overwrite_global_var Setting up the test context...
+bar
+<span class="ansi-green-fg">PASSED</span>Tearing down the test context...
+foo
+
+tests/fixtures/test_fixtures.py::test_should_get_overwritten_global_class Setting up the test context...
+foo
+<span class="ansi-green-fg">PASSED</span>Tearing down the test context...
+foo
+
+tests/http/test_http.py::test_http_logs_are_not_catched 
+<span class="ansi-green-fg">PASSED</span>
+tests/http/test_http.py::test_http_logs_are_catched send: b'GET / HTTP/1.1\r\nHost: www.google.com\r\nUser-Agent: python-requests/2.32.3\r\nAccept-Encoding: gzip, deflate\r\nAccept: */*\r\nConnection: keep-alive\r\n\r\n'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Date: Wed, 26 Jun 2024 15:18:49 GMT
+header: Expires: -1
+header: Cache-Control: private, max-age=0
+header: Content-Type: text/html; charset=ISO-8859-1
+header: Content-Security-Policy-Report-Only: object-src 'none';base-uri 'self';script-src 'nonce-dJg99W0AaDIhv2Fu3mQ1ww' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp
+header: P3P: CP="This is not a P3P policy! See g.co/p3phelp for more info."
+header: Content-Encoding: gzip
+header: Server: gws
+header: X-XSS-Protection: 0
+header: X-Frame-Options: SAMEORIGIN
+header: Set-Cookie: SOCS=CAAaBgiAtO2zBg; expires=Sat, 26-Jul-2025 15:18:49 GMT; path=/; domain=.google.com; Secure; SameSite=lax
+header: Set-Cookie: AEC=AQTF6HzLRUVbpUPJ5hOdc28_Lsa36ra40RM9cedpdzHnmrY2BJtHB4Dv1w; expires=Mon, 23-Dec-2024 15:18:49 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax
+header: Set-Cookie: __Secure-ENID=20.SE=e-bFfIQOKg1OQMb6RLNNHOAbDN01EryqkkpFI8JehNFa_R43c26RZbaN5PhdyJysXjSFT6aM5lQH5Wr2Dz_dRUekq7xhyfCR7lff5KPnJLCKJwVb-xC5JIy4IduTrUmVIp4I6_oT98tkgf2HVLIIcwVF2Fm_Dx-cvuQq9y3kAj0rJ3UlXqxqrHOJ4h5S5eocBwqLlrlYf6qJR_iIoQ; expires=Sun, 27-Jul-2025 07:37:07 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax
+header: Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+header: Transfer-Encoding: chunked
+
+<span class="ansi-green-fg">PASSED</span>
+
+=================================== FAILURES ===================================
+<span class="ansi-red-intense-fg ansi-bold">___________________________________ test_int ___________________________________</span>
+
+    <span class="ansi-white-fg">@pytest</span>.mark.issue
+    <span class="ansi-blue-intense-fg">def</span> <span class="ansi-green-intense-fg">test_int</span>():
+&gt;       <span class="ansi-blue-intense-fg">assert</span> function_that_returns_text(<span class="ansi-blue-intense-fg">15</span>) == <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">15</span><span class="ansi-yellow-fg">"</span>
+
+<span class="ansi-red-intense-fg ansi-bold">tests/basic_functions/test_basic_functions.py</span>:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+text = 15
+
+    <span class="ansi-blue-intense-fg">def</span> <span class="ansi-green-intense-fg">function_that_returns_text</span>(text: <span class="ansi-cyan-intense-fg">str</span>):
+        <span class="ansi-blue-intense-fg">if</span> <span class="ansi-cyan-intense-fg">isinstance</span>(text, <span class="ansi-cyan-intense-fg">str</span>):
+            <span class="ansi-blue-intense-fg">return</span> text
+        <span class="ansi-blue-intense-fg">else</span>:
+&gt;           <span class="ansi-blue-intense-fg">raise</span> <span class="ansi-cyan-intense-fg">ValueError</span>(<span class="ansi-yellow-fg">f</span><span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Input did not have a </span><span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg">{</span><span class="ansi-cyan-intense-fg">str</span><span class="ansi-yellow-fg">}</span><span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg"> type, but </span><span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg">{</span><span class="ansi-cyan-intense-fg">type</span>(text)<span class="ansi-yellow-fg">}</span><span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg">!</span><span class="ansi-yellow-fg">"</span>)
+<span class="ansi-red-intense-fg ansi-bold">E           ValueError: Input did not have a '&lt;class 'str'&gt;' type, but '&lt;class 'int'&gt;'!</span>
+
+<span class="ansi-red-intense-fg ansi-bold">python_testing_demo/basic_functions.py</span>:5: ValueError
+-------- generated xml file: /workspaces/python-testing-demo/report.xml --------
+<span class="ansi-cyan-intense-fg ansi-bold">=========================== short test summary info ============================</span>
+<span class="ansi-red-fg">FAILED</span> tests/basic_functions/test_basic_functions.py::<span class="ansi-bold">test_int</span> - ValueError: Input did not have a '&lt;class 'str'&gt;' type, but '&lt;class 'int'&gt;'!
+<span class="ansi-red-fg">========================= </span><span class="ansi-red-intense-fg ansi-bold">1 failed</span>, <span class="ansi-green-fg">12 passed</span><span class="ansi-red-fg"> in 0.36s</span><span class="ansi-red-fg"> =========================</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [39]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create code coverage report</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pytest-cov
+<span class="o">!</span>pytest<span class="w"> </span>--cov<span class="w"> </span>--cov-report<span class="o">=</span>html
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Requirement already satisfied: pytest-cov in ./.venv/lib/python3.12/site-packages (5.0.0)
+Requirement already satisfied: pytest&gt;=4.6 in ./.venv/lib/python3.12/site-packages (from pytest-cov) (8.2.2)
+Requirement already satisfied: coverage&gt;=5.2.1 in ./.venv/lib/python3.12/site-packages (from coverage[toml]&gt;=5.2.1-&gt;pytest-cov) (7.5.4)
+Requirement already satisfied: iniconfig in ./.venv/lib/python3.12/site-packages (from pytest&gt;=4.6-&gt;pytest-cov) (2.0.0)
+Requirement already satisfied: packaging in ./.venv/lib/python3.12/site-packages (from pytest&gt;=4.6-&gt;pytest-cov) (24.1)
+Requirement already satisfied: pluggy&lt;2.0,&gt;=1.5 in ./.venv/lib/python3.12/site-packages (from pytest&gt;=4.6-&gt;pytest-cov) (1.5.0)
+<span class="ansi-bold">============================= test session starts ==============================</span>
+platform linux -- Python 3.12.3, pytest-8.2.2, pluggy-1.5.0
+rootdir: /workspaces/python-testing-demo
+configfile: pytest.ini
+plugins: anyio-4.4.0, cov-5.0.0
+collected 13 items                                                             <span class="ansi-bold">
+
+tests/basic_functions/test_basic_functions.py </span><span class="ansi-green-intense-fg ansi-bold">.</span><span class="ansi-green-fg">.</span><span class="ansi-red-fg">F</span><span class="ansi-green-fg">.</span><span class="ansi-green-fg">.</span><span class="ansi-green-fg">.</span><span class="ansi-red-fg">                     [ 46%]</span>
+tests/basic_functions/test_coverage.py <span class="ansi-green-fg">.</span><span class="ansi-red-fg">                                 [ 53%]</span>
+tests/fixtures/test_fixtures.py <span class="ansi-green-fg">.</span><span class="ansi-green-fg">.</span><span class="ansi-green-fg">.</span><span class="ansi-green-fg">.</span><span class="ansi-red-fg">                                     [ 84%]</span>
+tests/http/test_http.py <span class="ansi-green-fg">.</span><span class="ansi-green-fg">.</span><span class="ansi-red-fg">                                               [100%]</span>
+
+=================================== FAILURES ===================================
+<span class="ansi-red-intense-fg ansi-bold">___________________________________ test_int ___________________________________</span>
+
+    <span class="ansi-white-fg">@pytest</span>.mark.issue
+    <span class="ansi-blue-intense-fg">def</span> <span class="ansi-green-intense-fg">test_int</span>():
+&gt;       <span class="ansi-blue-intense-fg">assert</span> function_that_returns_text(<span class="ansi-blue-intense-fg">15</span>) == <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">15</span><span class="ansi-yellow-fg">"</span>
+
+<span class="ansi-red-intense-fg ansi-bold">tests/basic_functions/test_basic_functions.py</span>:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+text = 15
+
+    <span class="ansi-blue-intense-fg">def</span> <span class="ansi-green-intense-fg">function_that_returns_text</span>(text: <span class="ansi-cyan-intense-fg">str</span>):
+        <span class="ansi-blue-intense-fg">if</span> <span class="ansi-cyan-intense-fg">isinstance</span>(text, <span class="ansi-cyan-intense-fg">str</span>):
+            <span class="ansi-blue-intense-fg">return</span> text
+        <span class="ansi-blue-intense-fg">else</span>:
+&gt;           <span class="ansi-blue-intense-fg">raise</span> <span class="ansi-cyan-intense-fg">ValueError</span>(<span class="ansi-yellow-fg">f</span><span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Input did not have a </span><span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg">{</span><span class="ansi-cyan-intense-fg">str</span><span class="ansi-yellow-fg">}</span><span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg"> type, but </span><span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg">{</span><span class="ansi-cyan-intense-fg">type</span>(text)<span class="ansi-yellow-fg">}</span><span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg">!</span><span class="ansi-yellow-fg">"</span>)
+<span class="ansi-red-intense-fg ansi-bold">E           ValueError: Input did not have a '&lt;class 'str'&gt;' type, but '&lt;class 'int'&gt;'!</span>
+
+<span class="ansi-red-intense-fg ansi-bold">python_testing_demo/basic_functions.py</span>:5: ValueError
+
+---------- coverage: platform linux, python 3.12.3-final-0 -----------
+Coverage HTML written to dir htmlcov
+
+<span class="ansi-cyan-intense-fg ansi-bold">=========================== short test summary info ============================</span>
+<span class="ansi-red-fg">FAILED</span> tests/basic_functions/test_basic_functions.py::<span class="ansi-bold">test_int</span> - ValueError: Input did not have a '&lt;class 'str'&gt;' type, but '&lt;class 'int'&gt;'!
+<span class="ansi-red-fg">========================= </span><span class="ansi-red-intense-fg ansi-bold">1 failed</span>, <span class="ansi-green-fg">12 passed</span><span class="ansi-red-fg"> in 1.03s</span><span class="ansi-red-fg"> =========================</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Using-fixtures">Using fixtures<a class="anchor-link" href="#Using-fixtures">¶</a></h2><p>Fixtures can extend the functionality of functions, facilitating flexibility and reusability:</p>
+<ul>
+<li>Pass reusable datasets to distinct tests</li>
+<li>Enforce certain actions/logging on the entire test suite in one definition</li>
+</ul>
+<blockquote>
+<p>WARNING: Fixtures that share their scope across multiple tests CAN be influenced by said tests, breaking the independency of those tests!</p>
+</blockquote>
+<p>Ref: <a href="https://docs.pytest.org/en/7.1.x/explanation/fixtures.html?highlight=fixture">https://docs.pytest.org/en/7.1.x/explanation/fixtures.html?highlight=fixture</a></p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Code</span>
+
+<span class="n">Code</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">'tests/fixtures/conftest.py'</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">'python'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.output_html .hll { background-color: #ffffcc }
+.output_html { background: #f8f8f8; }
+.output_html .c { color: #3D7B7B; font-style: italic } /* Comment */
+.output_html .err { border: 1px solid #FF0000 } /* Error */
+.output_html .k { color: #008000; font-weight: bold } /* Keyword */
+.output_html .o { color: #666666 } /* Operator */
+.output_html .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.output_html .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.output_html .cp { color: #9C6500 } /* Comment.Preproc */
+.output_html .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.output_html .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.output_html .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.output_html .gd { color: #A00000 } /* Generic.Deleted */
+.output_html .ge { font-style: italic } /* Generic.Emph */
+.output_html .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.output_html .gr { color: #E40000 } /* Generic.Error */
+.output_html .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.output_html .gi { color: #008400 } /* Generic.Inserted */
+.output_html .go { color: #717171 } /* Generic.Output */
+.output_html .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.output_html .gs { font-weight: bold } /* Generic.Strong */
+.output_html .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.output_html .gt { color: #0044DD } /* Generic.Traceback */
+.output_html .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.output_html .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.output_html .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.output_html .kp { color: #008000 } /* Keyword.Pseudo */
+.output_html .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.output_html .kt { color: #B00040 } /* Keyword.Type */
+.output_html .m { color: #666666 } /* Literal.Number */
+.output_html .s { color: #BA2121 } /* Literal.String */
+.output_html .na { color: #687822 } /* Name.Attribute */
+.output_html .nb { color: #008000 } /* Name.Builtin */
+.output_html .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.output_html .no { color: #880000 } /* Name.Constant */
+.output_html .nd { color: #AA22FF } /* Name.Decorator */
+.output_html .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.output_html .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.output_html .nf { color: #0000FF } /* Name.Function */
+.output_html .nl { color: #767600 } /* Name.Label */
+.output_html .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.output_html .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.output_html .nv { color: #19177C } /* Name.Variable */
+.output_html .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.output_html .w { color: #bbbbbb } /* Text.Whitespace */
+.output_html .mb { color: #666666 } /* Literal.Number.Bin */
+.output_html .mf { color: #666666 } /* Literal.Number.Float */
+.output_html .mh { color: #666666 } /* Literal.Number.Hex */
+.output_html .mi { color: #666666 } /* Literal.Number.Integer */
+.output_html .mo { color: #666666 } /* Literal.Number.Oct */
+.output_html .sa { color: #BA2121 } /* Literal.String.Affix */
+.output_html .sb { color: #BA2121 } /* Literal.String.Backtick */
+.output_html .sc { color: #BA2121 } /* Literal.String.Char */
+.output_html .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.output_html .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.output_html .s2 { color: #BA2121 } /* Literal.String.Double */
+.output_html .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.output_html .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.output_html .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.output_html .sx { color: #008000 } /* Literal.String.Other */
+.output_html .sr { color: #A45A77 } /* Literal.String.Regex */
+.output_html .s1 { color: #BA2121 } /* Literal.String.Single */
+.output_html .ss { color: #19177C } /* Literal.String.Symbol */
+.output_html .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.output_html .fm { color: #0000FF } /* Name.Function.Magic */
+.output_html .vc { color: #19177C } /* Name.Variable.Class */
+.output_html .vg { color: #19177C } /* Name.Variable.Global */
+.output_html .vi { color: #19177C } /* Name.Variable.Instance */
+.output_html .vm { color: #19177C } /* Name.Variable.Magic */
+.output_html .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="kn">from</span> <span class="nn">python_testing_demo.fixtures</span> <span class="kn">import</span> <span class="n">SomeClass</span>
+
+<span class="k">def</span> <span class="nf">pytest_configure</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Set up pytest global variables.</span>
+<span class="sd">    """</span>
+    <span class="n">pytest</span><span class="o">.</span><span class="n">GLOBAL_TEST_VARIABLE</span> <span class="o">=</span> <span class="s2">"test global variable"</span>
+    <span class="n">pytest</span><span class="o">.</span><span class="n">GLOBAL_TEST_VARIABLE_APPENDED</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">pytest</span><span class="o">.</span><span class="n">GLOBAL_TEST_VARIABLE</span><span class="si">}</span><span class="s2">_appended"</span>
+
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span> <span class="nf">setup_and_teardown_class</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Sets up a reusable context for the actual tests and tears everything down afterwards.</span>
+<span class="sd">    """</span>
+
+    <span class="c1"># Anything that's set up here will be available during the lower-level test!</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Setting up the test context..."</span><span class="p">)</span>
+    <span class="n">some_class</span> <span class="o">=</span> <span class="n">SomeClass</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">some_class</span><span class="o">.</span><span class="n">some_other_var</span><span class="p">)</span>
+
+    <span class="c1"># Run the actual lower-level test</span>
+    <span class="k">yield</span> <span class="n">some_class</span>
+
+    <span class="c1"># Anything after the yield that was affected during the lower-level test is still in that same context!</span>
+    <span class="c1"># Note that this can influence other tests if not teared down correctly</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Tearing down the test context..."</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">some_class</span><span class="o">.</span><span class="n">some_other_var</span><span class="p">)</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">"session"</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">global_class</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    A reusable class object defined ONLY ONCE in the ENTIRE session.</span>
+
+<span class="sd">    :return: Initialized class object</span>
+<span class="sd">    """</span>
+    <span class="n">some_global_class</span> <span class="o">=</span> <span class="n">SomeClass</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">some_global_class</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span> <span class="nf">incorrectly_setup_and_teardown_class</span><span class="p">(</span><span class="n">global_class</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Sets up a reusable context for the actual tests and tears everything down afterwards.</span>
+<span class="sd">    """</span>
+
+    <span class="c1"># Anything that's set up here will be available during the lower-level test!</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Setting up the test context..."</span><span class="p">)</span>
+    <span class="n">some_class</span> <span class="o">=</span> <span class="n">global_class</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">some_class</span><span class="o">.</span><span class="n">some_other_var</span><span class="p">)</span>
+
+    <span class="c1"># Run the actual lower-level test</span>
+    <span class="k">yield</span> <span class="n">some_class</span>
+
+    <span class="c1"># Anything after the yield that was affected during the lower-level test is still in that same context!</span>
+    <span class="c1"># Note that this can influence other tests if not teared down correctly</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Tearing down the test context..."</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">some_class</span><span class="o">.</span><span class="n">some_other_var</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [41]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Code</span>
+
+<span class="n">Code</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">'tests/fixtures/test_fixtures.py'</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">'python'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style>pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7742,24 +8416,37 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .output_html .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
 
 
-<span class="c1"># TODO: Test fails, might need to move everything to actual tests/ folder and then execute/include from here?</span>
 <span class="k">def</span> <span class="nf">test_should_have_access_to_global_variable</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">pytest</span><span class="o">.</span><span class="n">GLOBAL_TEST_VARIABLE</span> <span class="o">==</span> <span class="s2">"test global variable"</span>
+    <span class="k">assert</span> <span class="s2">"variable_appended"</span> <span class="ow">in</span> <span class="n">pytest</span><span class="o">.</span><span class="n">GLOBAL_TEST_VARIABLE_APPENDED</span>
+
+
+<span class="k">def</span> <span class="nf">test_should_use_setup_and_teardown_and_overwrite_higher_level_var</span><span class="p">(</span><span class="n">setup_and_teardown_class</span><span class="p">):</span>
+    <span class="n">setup_and_teardown_class</span><span class="o">.</span><span class="n">some_other_var</span> <span class="o">=</span> <span class="n">setup_and_teardown_class</span><span class="o">.</span><span class="n">some_var</span>
+    <span class="k">assert</span> <span class="n">setup_and_teardown_class</span><span class="o">.</span><span class="n">some_var</span> <span class="o">==</span> <span class="s2">"foo"</span>
+
+
+<span class="k">def</span> <span class="nf">test_should_use_setup_and_teardown_and_overwrite_global_var</span><span class="p">(</span><span class="n">incorrectly_setup_and_teardown_class</span><span class="p">):</span>
+    <span class="n">incorrectly_setup_and_teardown_class</span><span class="o">.</span><span class="n">some_other_var</span> <span class="o">=</span> <span class="n">incorrectly_setup_and_teardown_class</span><span class="o">.</span><span class="n">some_var</span>
+    <span class="k">assert</span> <span class="n">incorrectly_setup_and_teardown_class</span><span class="o">.</span><span class="n">some_var</span> <span class="o">==</span> <span class="s2">"foo"</span>
+
+
+<span class="k">def</span> <span class="nf">test_should_get_overwritten_global_class</span><span class="p">(</span><span class="n">incorrectly_setup_and_teardown_class</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">incorrectly_setup_and_teardown_class</span><span class="o">.</span><span class="n">some_other_var</span> <span class="o">==</span> <span class="s2">"foo"</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [42]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># /tests/some_tests_file.py</span>
-<span class="o">!</span>pytest<span class="w"> </span>tests/test_fixtures.py
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">!</span>pytest<span class="w"> </span>tests/fixtures/test_fixtures.py<span class="w"> </span>-s<span class="w"> </span>-vvv
 </pre></div>
 </div>
 </div>
@@ -7773,16 +8460,164 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre><span class="ansi-bold">============================= test session starts ==============================</span>
-platform linux -- Python 3.12.3, pytest-8.2.2, pluggy-1.5.0
+platform linux -- Python 3.12.3, pytest-8.2.2, pluggy-1.5.0 -- /workspaces/python-testing-demo/.venv/bin/python
+cachedir: .pytest_cache
 rootdir: /workspaces/python-testing-demo
-configfile: pyproject.toml
-plugins: anyio-4.4.0
-collected 1 item                                                               
+configfile: pytest.ini
+plugins: anyio-4.4.0, cov-5.0.0
+collected 4 items                                                              
 
-tests/test_fixtures.py <span class="ansi-green-fg">.</span><span class="ansi-green-fg">                                                 [100%]</span>
+tests/fixtures/test_fixtures.py::test_should_have_access_to_global_variable <span class="ansi-green-fg">PASSED</span>
+tests/fixtures/test_fixtures.py::test_should_use_setup_and_teardown_and_overwrite_higher_level_var Setting up the test context...
+bar
+<span class="ansi-green-fg">PASSED</span>Tearing down the test context...
+foo
 
-<span class="ansi-green-fg">============================== </span><span class="ansi-green-intense-fg ansi-bold">1 passed</span><span class="ansi-green-fg"> in 0.01s</span><span class="ansi-green-fg"> ===============================</span>
+tests/fixtures/test_fixtures.py::test_should_use_setup_and_teardown_and_overwrite_global_var Setting up the test context...
+bar
+<span class="ansi-green-fg">PASSED</span>Tearing down the test context...
+foo
+
+tests/fixtures/test_fixtures.py::test_should_get_overwritten_global_class Setting up the test context...
+foo
+<span class="ansi-green-fg">PASSED</span>Tearing down the test context...
+foo
+
+
+<span class="ansi-green-fg">============================== </span><span class="ansi-green-intense-fg ansi-bold">4 passed</span><span class="ansi-green-fg"> in 0.02s</span><span class="ansi-green-fg"> ===============================</span>
 </pre>
+</div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="HTTP-Responses">HTTP Responses<a class="anchor-link" href="#HTTP-Responses">¶</a></h3><p>Sometimes you'll need to verify that certain HTTP requests contain specific data, i.e. to verify certain third-party behavior. You can catch and expose HTTP request data with the following code.</p>
+<p>We use the out-of-the-box available pytest fixture <code>capsys</code> (<a href="https://docs.pytest.org/en/7.1.x/how-to/capture-stdout-stderr.html">https://docs.pytest.org/en/7.1.x/how-to/capture-stdout-stderr.html</a>) together with our custom <code>debug_http</code> fixture.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [43]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Code</span>
+
+<span class="n">Code</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">'tests/http/conftest.py'</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">'python'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[43]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.output_html .hll { background-color: #ffffcc }
+.output_html { background: #f8f8f8; }
+.output_html .c { color: #3D7B7B; font-style: italic } /* Comment */
+.output_html .err { border: 1px solid #FF0000 } /* Error */
+.output_html .k { color: #008000; font-weight: bold } /* Keyword */
+.output_html .o { color: #666666 } /* Operator */
+.output_html .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.output_html .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.output_html .cp { color: #9C6500 } /* Comment.Preproc */
+.output_html .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.output_html .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.output_html .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.output_html .gd { color: #A00000 } /* Generic.Deleted */
+.output_html .ge { font-style: italic } /* Generic.Emph */
+.output_html .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.output_html .gr { color: #E40000 } /* Generic.Error */
+.output_html .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.output_html .gi { color: #008400 } /* Generic.Inserted */
+.output_html .go { color: #717171 } /* Generic.Output */
+.output_html .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.output_html .gs { font-weight: bold } /* Generic.Strong */
+.output_html .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.output_html .gt { color: #0044DD } /* Generic.Traceback */
+.output_html .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.output_html .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.output_html .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.output_html .kp { color: #008000 } /* Keyword.Pseudo */
+.output_html .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.output_html .kt { color: #B00040 } /* Keyword.Type */
+.output_html .m { color: #666666 } /* Literal.Number */
+.output_html .s { color: #BA2121 } /* Literal.String */
+.output_html .na { color: #687822 } /* Name.Attribute */
+.output_html .nb { color: #008000 } /* Name.Builtin */
+.output_html .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.output_html .no { color: #880000 } /* Name.Constant */
+.output_html .nd { color: #AA22FF } /* Name.Decorator */
+.output_html .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.output_html .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.output_html .nf { color: #0000FF } /* Name.Function */
+.output_html .nl { color: #767600 } /* Name.Label */
+.output_html .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.output_html .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.output_html .nv { color: #19177C } /* Name.Variable */
+.output_html .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.output_html .w { color: #bbbbbb } /* Text.Whitespace */
+.output_html .mb { color: #666666 } /* Literal.Number.Bin */
+.output_html .mf { color: #666666 } /* Literal.Number.Float */
+.output_html .mh { color: #666666 } /* Literal.Number.Hex */
+.output_html .mi { color: #666666 } /* Literal.Number.Integer */
+.output_html .mo { color: #666666 } /* Literal.Number.Oct */
+.output_html .sa { color: #BA2121 } /* Literal.String.Affix */
+.output_html .sb { color: #BA2121 } /* Literal.String.Backtick */
+.output_html .sc { color: #BA2121 } /* Literal.String.Char */
+.output_html .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.output_html .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.output_html .s2 { color: #BA2121 } /* Literal.String.Double */
+.output_html .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.output_html .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.output_html .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.output_html .sx { color: #008000 } /* Literal.String.Other */
+.output_html .sr { color: #A45A77 } /* Literal.String.Regex */
+.output_html .s1 { color: #BA2121 } /* Literal.String.Single */
+.output_html .ss { color: #19177C } /* Literal.String.Symbol */
+.output_html .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.output_html .fm { color: #0000FF } /* Name.Function.Magic */
+.output_html .vc { color: #19177C } /* Name.Variable.Class */
+.output_html .vg { color: #19177C } /* Name.Variable.Global */
+.output_html .vi { color: #19177C } /* Name.Variable.Instance */
+.output_html .vm { color: #19177C } /* Name.Variable.Magic */
+.output_html .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">pytest</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span> <span class="nf">debug_http</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">"module"</span><span class="p">,</span> <span class="n">autouse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Catches all out-going HTTP calls and prints them in the console.</span>
+<span class="sd">    Use `autouse=True` to automatically use it in every test which imports this conftest.py file.</span>
+<span class="sd">    """</span>
+    <span class="kn">import</span> <span class="nn">http.client</span> <span class="k">as</span> <span class="nn">http_client</span>
+
+    <span class="n">http_client</span><span class="o">.</span><span class="n">HTTPConnection</span><span class="o">.</span><span class="n">debuglevel</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">()</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"debug_http"</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+    <span class="n">requests_log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"requests.packages.urllib3"</span><span class="p">)</span>
+    <span class="n">requests_log</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+    <span class="n">requests_log</span><span class="o">.</span><span class="n">propagate</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -7792,10 +8627,135 @@ tests/test_fixtures.py <span class="ansi-green-fg">.</span><span class="ansi-gre
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [44]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span><span class="s1">'demo copy.ipynb'</span><span class="w"> </span>--to<span class="w"> </span>slides<span class="w"> </span>--post<span class="w"> </span>serve
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Code</span>
+
+<span class="n">Code</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">'tests/http/test_http.py'</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">'python'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[44]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.output_html .hll { background-color: #ffffcc }
+.output_html { background: #f8f8f8; }
+.output_html .c { color: #3D7B7B; font-style: italic } /* Comment */
+.output_html .err { border: 1px solid #FF0000 } /* Error */
+.output_html .k { color: #008000; font-weight: bold } /* Keyword */
+.output_html .o { color: #666666 } /* Operator */
+.output_html .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.output_html .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.output_html .cp { color: #9C6500 } /* Comment.Preproc */
+.output_html .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.output_html .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.output_html .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.output_html .gd { color: #A00000 } /* Generic.Deleted */
+.output_html .ge { font-style: italic } /* Generic.Emph */
+.output_html .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.output_html .gr { color: #E40000 } /* Generic.Error */
+.output_html .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.output_html .gi { color: #008400 } /* Generic.Inserted */
+.output_html .go { color: #717171 } /* Generic.Output */
+.output_html .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.output_html .gs { font-weight: bold } /* Generic.Strong */
+.output_html .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.output_html .gt { color: #0044DD } /* Generic.Traceback */
+.output_html .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.output_html .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.output_html .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.output_html .kp { color: #008000 } /* Keyword.Pseudo */
+.output_html .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.output_html .kt { color: #B00040 } /* Keyword.Type */
+.output_html .m { color: #666666 } /* Literal.Number */
+.output_html .s { color: #BA2121 } /* Literal.String */
+.output_html .na { color: #687822 } /* Name.Attribute */
+.output_html .nb { color: #008000 } /* Name.Builtin */
+.output_html .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.output_html .no { color: #880000 } /* Name.Constant */
+.output_html .nd { color: #AA22FF } /* Name.Decorator */
+.output_html .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.output_html .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.output_html .nf { color: #0000FF } /* Name.Function */
+.output_html .nl { color: #767600 } /* Name.Label */
+.output_html .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.output_html .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.output_html .nv { color: #19177C } /* Name.Variable */
+.output_html .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.output_html .w { color: #bbbbbb } /* Text.Whitespace */
+.output_html .mb { color: #666666 } /* Literal.Number.Bin */
+.output_html .mf { color: #666666 } /* Literal.Number.Float */
+.output_html .mh { color: #666666 } /* Literal.Number.Hex */
+.output_html .mi { color: #666666 } /* Literal.Number.Integer */
+.output_html .mo { color: #666666 } /* Literal.Number.Oct */
+.output_html .sa { color: #BA2121 } /* Literal.String.Affix */
+.output_html .sb { color: #BA2121 } /* Literal.String.Backtick */
+.output_html .sc { color: #BA2121 } /* Literal.String.Char */
+.output_html .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.output_html .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.output_html .s2 { color: #BA2121 } /* Literal.String.Double */
+.output_html .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.output_html .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.output_html .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.output_html .sx { color: #008000 } /* Literal.String.Other */
+.output_html .sr { color: #A45A77 } /* Literal.String.Regex */
+.output_html .s1 { color: #BA2121 } /* Literal.String.Single */
+.output_html .ss { color: #19177C } /* Literal.String.Symbol */
+.output_html .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.output_html .fm { color: #0000FF } /* Name.Function.Magic */
+.output_html .vc { color: #19177C } /* Name.Variable.Class */
+.output_html .vg { color: #19177C } /* Name.Variable.Global */
+.output_html .vi { color: #19177C } /* Name.Variable.Instance */
+.output_html .vm { color: #19177C } /* Name.Variable.Magic */
+.output_html .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+
+<span class="k">def</span> <span class="nf">test_http_logs_are_not_catched</span><span class="p">(</span>
+    <span class="n">capsys</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://www.google.com/"</span><span class="p">)</span>
+
+    <span class="n">out</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">capsys</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="s2">"HTTP/1.1 200 OK"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">out</span>
+
+
+<span class="k">def</span> <span class="nf">test_http_logs_are_catched</span><span class="p">(</span>
+    <span class="n">debug_http</span><span class="p">,</span>
+    <span class="n">capsys</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://www.google.com/"</span><span class="p">)</span>
+
+    <span class="n">out</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">capsys</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="s2">"HTTP/1.1 200 OK"</span> <span class="ow">in</span> <span class="n">out</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [45]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">!</span>pytest<span class="w"> </span>tests/http/test_http.py<span class="w"> </span>-s<span class="w"> </span>-vvv
 </pre></div>
 </div>
 </div>
@@ -7808,20 +8768,72 @@ tests/test_fixtures.py <span class="ansi-green-fg">.</span><span class="ansi-gre
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[NbConvertApp] Converting notebook demo copy.ipynb to slides
-[NbConvertApp] Writing 291114 bytes to demo copy.slides.html
-[NbConvertApp] Redirecting reveal.js requests to https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0
-Serving your slides at http://127.0.0.1:8000/demo copy.slides.html
-Use Control-C to stop this server
-^C
+<pre><span class="ansi-bold">============================= test session starts ==============================</span>
+platform linux -- Python 3.12.3, pytest-8.2.2, pluggy-1.5.0 -- /workspaces/python-testing-demo/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /workspaces/python-testing-demo
+configfile: pytest.ini
+plugins: anyio-4.4.0, cov-5.0.0
+collected 2 items                                                              
 
-Interrupted
+tests/http/test_http.py::test_http_logs_are_not_catched 
+<span class="ansi-green-fg">PASSED</span>
+tests/http/test_http.py::test_http_logs_are_catched send: b'GET / HTTP/1.1\r\nHost: www.google.com\r\nUser-Agent: python-requests/2.32.3\r\nAccept-Encoding: gzip, deflate\r\nAccept: */*\r\nConnection: keep-alive\r\n\r\n'
+reply: 'HTTP/1.1 200 OK\r\n'
+header: Date: Wed, 26 Jun 2024 15:18:54 GMT
+header: Expires: -1
+header: Cache-Control: private, max-age=0
+header: Content-Type: text/html; charset=ISO-8859-1
+header: Content-Security-Policy-Report-Only: object-src 'none';base-uri 'self';script-src 'nonce-17jucoAe81FU_ifJZ7Jklg' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp
+header: P3P: CP="This is not a P3P policy! See g.co/p3phelp for more info."
+header: Content-Encoding: gzip
+header: Server: gws
+header: X-XSS-Protection: 0
+header: X-Frame-Options: SAMEORIGIN
+header: Set-Cookie: SOCS=CAAaBgiAtO2zBg; expires=Sat, 26-Jul-2025 15:18:54 GMT; path=/; domain=.google.com; Secure; SameSite=lax
+header: Set-Cookie: AEC=AQTF6HxCxOwCiuSiEDa1pX1B6bg7NBn6Z3DxgOPg8xYPIN21Ma7oDLtC3DQ; expires=Mon, 23-Dec-2024 15:18:54 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax
+header: Set-Cookie: __Secure-ENID=20.SE=daQOoVO5mNzIlx81vjR5W2pAvHeUy1zuwflMFJlPD_CyeE34hqM1_SijQYiTwuvZMAuJoiCMoJaRpF8QcUzgwSL3ykKKzKwZo8lhMGOD0qNddW5QaytLaVc8Gl46qjYC3qJiZNctzqQdZDGFChFfzmru4IYffj-1BTfjhpFKNlyky1Et3IyCDtZj3IvDJ07EySZB8EDYQEoRcdUviw; expires=Sun, 27-Jul-2025 07:37:12 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax
+header: Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+header: Transfer-Encoding: chunked
+
+<span class="ansi-green-fg">PASSED</span>
+
+<span class="ansi-green-fg">============================== </span><span class="ansi-green-intense-fg ansi-bold">2 passed</span><span class="ansi-green-fg"> in 0.24s</span><span class="ansi-green-fg"> ===============================</span>
 </pre>
 </div>
 </div>
 </div>
 </div>
-</div></div></section></section>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [46]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span><span class="s1">'demo.ipynb'</span><span class="w"> </span>--to<span class="w"> </span>slides<span class="w"> </span>--SlidesExporter.reveal_scroll<span class="o">=</span>True
+<span class="c1"># Change width=1096 and height=1024 in function(Reveal, RevealNotes)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>[NbConvertApp] Converting notebook demo.ipynb to slides
+[NbConvertApp] Writing 289119 bytes to demo.slides.html
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div></section></section>
 </div>
 </div>
 </main>
@@ -7861,7 +8873,7 @@ require(
         Reveal.addEventListener('slidechanged', update);
 
         function setScrollingSlide() {
-            var scroll = false
+            var scroll = true
             if (scroll === true) {
               var h = $('.reveal').height() * 0.95;
               $('section.present').find('section')

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="13" time="0.358" timestamp="2024-06-26T15:18:49.563721" hostname="codespaces-3ef527"><testcase classname="tests.basic_functions.test_basic_functions" name="test_str" time="0.001" /><testcase classname="tests.basic_functions.test_basic_functions" name="test_int_as_str" time="0.000" /><testcase classname="tests.basic_functions.test_basic_functions" name="test_int" time="0.000"><failure message="ValueError: Input did not have a '&lt;class 'str'&gt;' type, but '&lt;class 'int'&gt;'!">#x1B[0m#x1B[37m@pytest#x1B[39;49;00m.mark.issue#x1B[90m#x1B[39;49;00m
+    #x1B[94mdef#x1B[39;49;00m #x1B[92mtest_int#x1B[39;49;00m():#x1B[90m#x1B[39;49;00m
+&gt;       #x1B[94massert#x1B[39;49;00m function_that_returns_text(#x1B[94m15#x1B[39;49;00m) == #x1B[33m"#x1B[39;49;00m#x1B[33m15#x1B[39;49;00m#x1B[33m"#x1B[39;49;00m#x1B[90m#x1B[39;49;00m
+
+#x1B[1m#x1B[31mtests/basic_functions/test_basic_functions.py#x1B[0m:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+text = 15
+
+    #x1B[0m#x1B[94mdef#x1B[39;49;00m #x1B[92mfunction_that_returns_text#x1B[39;49;00m(text: #x1B[96mstr#x1B[39;49;00m):#x1B[90m#x1B[39;49;00m
+        #x1B[94mif#x1B[39;49;00m #x1B[96misinstance#x1B[39;49;00m(text, #x1B[96mstr#x1B[39;49;00m):#x1B[90m#x1B[39;49;00m
+            #x1B[94mreturn#x1B[39;49;00m text#x1B[90m#x1B[39;49;00m
+        #x1B[94melse#x1B[39;49;00m:#x1B[90m#x1B[39;49;00m
+&gt;           #x1B[94mraise#x1B[39;49;00m #x1B[96mValueError#x1B[39;49;00m(#x1B[33mf#x1B[39;49;00m#x1B[33m"#x1B[39;49;00m#x1B[33mInput did not have a #x1B[39;49;00m#x1B[33m'#x1B[39;49;00m#x1B[33m{#x1B[39;49;00m#x1B[96mstr#x1B[39;49;00m#x1B[33m}#x1B[39;49;00m#x1B[33m'#x1B[39;49;00m#x1B[33m type, but #x1B[39;49;00m#x1B[33m'#x1B[39;49;00m#x1B[33m{#x1B[39;49;00m#x1B[96mtype#x1B[39;49;00m(text)#x1B[33m}#x1B[39;49;00m#x1B[33m'#x1B[39;49;00m#x1B[33m!#x1B[39;49;00m#x1B[33m"#x1B[39;49;00m)#x1B[90m#x1B[39;49;00m
+#x1B[1m#x1B[31mE           ValueError: Input did not have a '&lt;class 'str'&gt;' type, but '&lt;class 'int'&gt;'!#x1B[0m
+
+#x1B[1m#x1B[31mpython_testing_demo/basic_functions.py#x1B[0m:5: ValueError</failure></testcase><testcase classname="tests.basic_functions.test_basic_functions" name="test_int_should_fail" time="0.001" /><testcase classname="tests.basic_functions.test_basic_functions" name="test_function_that_returns_text[will_return_text]" time="0.001" /><testcase classname="tests.basic_functions.test_basic_functions" name="test_function_that_returns_text[will_fail_on_non-str_type]" time="0.001" /><testcase classname="tests.basic_functions.test_coverage" name="test_untested_function_true" time="0.000" /><testcase classname="tests.fixtures.test_fixtures" name="test_should_have_access_to_global_variable" time="0.001" /><testcase classname="tests.fixtures.test_fixtures" name="test_should_use_setup_and_teardown_and_overwrite_higher_level_var" time="0.001" /><testcase classname="tests.fixtures.test_fixtures" name="test_should_use_setup_and_teardown_and_overwrite_global_var" time="0.001" /><testcase classname="tests.fixtures.test_fixtures" name="test_should_get_overwritten_global_class" time="0.000" /><testcase classname="tests.http.test_http" name="test_http_logs_are_not_catched" time="0.079" /><testcase classname="tests.http.test_http" name="test_http_logs_are_catched" time="0.054" /></testsuite></testsuites>

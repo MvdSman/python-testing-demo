@@ -31,17 +31,25 @@ def setup_and_teardown_class():
     print(some_class.some_other_var)
 
 
+@pytest.fixture(scope="session")
+def global_class():
+    """
+    A reusable class object defined ONLY ONCE in the ENTIRE session.
 
-some_global_class = SomeClass()
+    :return: Initialized class object
+    """
+    some_global_class = SomeClass()
+    return some_global_class
+
 @pytest.fixture
-def incorrectly_setup_and_teardown_class():
+def incorrectly_setup_and_teardown_class(global_class):
     """
     Sets up a reusable context for the actual tests and tears everything down afterwards.
     """
 
     # Anything that's set up here will be available during the lower-level test!
     print("Setting up the test context...")
-    some_class = some_global_class
+    some_class = global_class
     print(some_class.some_other_var)
 
     # Run the actual lower-level test

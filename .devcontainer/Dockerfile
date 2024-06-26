@@ -26,7 +26,7 @@ RUN curl -sSL https://install.python-poetry.org | python3 - --version ${POETRY_V
 	&& poetry config virtualenvs.in-project true
 
 # Install additional dependencies
-RUN pip3 install pipx && pipx ensurepath && pipx install pre-commit && pipx install copier && pipx install pytest && pipx install pytest-cov
+RUN pip3 install pipx && pipx ensurepath && pipx install pre-commit && pipx install copier && pipx install pytest
 
 # Give user $USER Poetry permissions
 RUN chown -R $USER:$USER /home/$USER/.config

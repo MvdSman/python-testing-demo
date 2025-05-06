@@ -32,6 +32,7 @@
 				"bpruitt-goddard.mermaid-markdown-syntax-highlighting",
 				// Python
 				"ms-python.python", // Includes PyLance and thus PyRight
+				"ms-toolsai.jupyter", // Jupyter Notebook tools
 				"charliermarsh.ruff", // Replaces Flake8, Black, Isort, PyUpgrade, and more while being faster
 				// YAML
 				"redhat.vscode-yaml", // YAML formatter and validator
